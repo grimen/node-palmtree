@@ -34,7 +34,7 @@ const resolveFixtureDataPaths = (object) => {
             if (value) {
                 if (typeof value === 'string') {
                     value = value.replace(ENV_VARIABLE_PATTERN, (_, key) => {
-                        return process.env[key]
+                        return process.env[key] || `$${key}`
                     })
 
                 } else if (typeof value === 'object') {

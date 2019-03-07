@@ -54,7 +54,7 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
     const items = []
 
     try {
-        rootPath = path.resolve(rootPath)
+        rootPath = rootPath.replace('~', process.env.HOME)
 
         let rootPathStat
 
@@ -66,7 +66,20 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
         }
 
         if (!rootPathStat.isDirectory()) {
-            throw new Error(`Not a valid directory: ${rootPath}`)
+            let resolvedRootPath
+
+            if (rootPathStat.isSymbolicLink()) {
+                try {
+                    resolvedRootPath = await fs.realpathAsync(rootPath)
+
+                } catch (error) {
+                    resolvedRootPath = null
+                }
+            }
+
+            if (!resolvedRootPath) {
+                throw new Error(`Not a valid directory: ${rootPath}`)
+            }
         }
 
         let fileNames
@@ -85,7 +98,7 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
             let absoluteFilePath
 
             absoluteFilePath = filePath.replace(ENV_VARIABLE_PATTERN, (_, key) => {
-                return process.env[key]
+                return process.env[key] || `$${key}`
             })
             absoluteFilePath = path.resolve(absoluteFilePath)
 
@@ -102,6 +115,7 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
 
             try {
                 fileStat = await fs.lstatAsync(absoluteFilePath)
+
             } catch (error) {
                 throw new Error(`File path don't exist: ${absoluteFilePath}`)
             }
@@ -254,8 +268,6 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
     let output = ''
 
     try {
-        rootPath = path.resolve(rootPath)
-
         if (level === ROOT_LEVEL) {
             const rootItemName = color.gray(rootPath)
 
@@ -368,7 +380,7 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
             throw error
         }
 
-        output += `    ${error.message}`
+        output += `\n\n    ${color.red(error.message)}`
         output += '\n\n'
 
         return output
@@ -376,7 +388,7 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
 }
 
 const logTree = async (rootPath = CURRENT_PATH, options = {}) => {
-    const output = inspectTree(rootPath, {...options, silent: true})
+    const output = await inspectTree(rootPath, {...options, silent: true})
 
     process.stdout.write(output)
 }
