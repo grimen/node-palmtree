@@ -23,6 +23,8 @@ fs.realpathAsync = util.promisify(fs.realpath)
 -------------------------------------- */
 
 const CURRENT_PATH = '.'
+const HOME_PATH = '~'
+
 const ROOT_LEVEL = 0
 const ENV_VARIABLE_PATTERN = /\$([a-zA-Z_][a-zA-Z0-9_]+)/g
 
@@ -54,7 +56,7 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
     const items = []
 
     try {
-        rootPath = rootPath.replace('~', process.env.HOME)
+        rootPath = rootPath.replace(HOME_PATH, process.env.HOME)
 
         let rootPathStat
 
@@ -93,7 +95,7 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
 
         for (let fileName of fileNames) {
             const filePath = path.join(rootPath, fileName)
-            const relativeFilePath = '.'
+            const relativeFilePath = CURRENT_PATH
 
             let absoluteFilePath
 
@@ -137,13 +139,13 @@ const getTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_LEVEL
 
             const resolvedAbsoluteFilePath = `${resolvedFilePath}`
 
-            let resolvedRelativePath = '.'
+            let resolvedRelativePath = CURRENT_PATH
 
             if (isLink) {
                 resolvedRelativePath = path.relative(absoluteFilePath, resolvedAbsoluteFilePath)
 
                 if (!resolvedRelativePath.length) {
-                    resolvedRelativePath = '.'
+                    resolvedRelativePath = CURRENT_PATH
                 }
             }
 
