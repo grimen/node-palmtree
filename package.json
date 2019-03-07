@@ -1,7 +1,7 @@
 {
     "name": "@grimen/palmtree",
     "version": "0.1.0",
-    "description": "A pretty filesystem tree inspection utility - for Node/JavaScript.",
+    "description": "A pretty filesystem tree inspection utility - for Node.js.",
     "keywords": [
         "tree",
         "inspect",
