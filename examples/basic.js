@@ -52,20 +52,20 @@ async function main () {
     await palmtree.log('./test/__fixtures__/foo', {meta})
 
     /* =======================================================
-        EXAMPLE: inspect plain colorized output
+        EXAMPLE: inspect plain output
     ----------------------------------------------------- */
 
-    console.log(`[inspect/plain]: plain colorized output`)
+    console.log(`[inspect/plain]: inspect plain colorized output`)
 
     let inspection = await palmtree.inspect('./test/__fixtures__/foo')
 
     console.log('[inspect/plain]:', inspection)
 
     /* =======================================================
-        EXAMPLE: inspect detailed custom colorized output
+        EXAMPLE: inspect detailed custom output
     ----------------------------------------------------- */
 
-    console.log(`[inspect/detailed]: detailed custom colorized output`)
+    console.log(`[inspect/detailed]: inspect detailed custom colorized output`)
 
     inspection = await palmtree.inspect('./test/__fixtures__/foo', {meta})
 
@@ -75,21 +75,21 @@ async function main () {
         EXAMPLE: get plain object
     ----------------------------------------------------- */
 
-    console.log(`[get/plain]: plain colorized output`)
+    console.log(`[get/plain]: get plain object`)
 
     let tree = await palmtree.get('./test/__fixtures__/foo')
 
-    console.log('[get/plain]:', tree)
+    console.log('[get/plain]:', util.inspect(tree, {depth: null, compact: false, indent: 4, colors: true}))
 
     /* =======================================================
         EXAMPLE: get detailed object
     ----------------------------------------------------- */
 
-    console.log(`[get/detailed]: detailed custom colorized output`)
+    console.log(`[get/detailed]: get detailed object`)
 
     tree = await palmtree.get('./test/__fixtures__/foo', {meta})
 
-    console.log('[get/detailed]:', tree)
+    console.log('[get/detailed]:', util.inspect(tree, {depth: null, compact: false, indent: 4, colors: true}))
 }
 
 main()
