@@ -2,7 +2,23 @@
     "name": "@grimen/palmtree",
     "version": "0.1.0",
     "description": "A pretty filesystem tree inspection utility - for Node/JavaScript.",
-    "keywords": [],
+    "keywords": [
+        "tree",
+        "inspect",
+        "inspector",
+        "debug",
+        "debugger",
+        "filesystem",
+        "fs",
+        "file",
+        "link",
+        "directory",
+        "folder",
+        "path",
+        "meta",
+        "colors",
+        "pretty"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/grimen/node-palmtree.git"
