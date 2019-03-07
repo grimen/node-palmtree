@@ -187,17 +187,17 @@ describe('palmtree', () => {
         result = await palmtree.inspect(VALID_FILE_PATH, {silent: true})
         result = stripANSI(result)
 
-        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/foo/foo_1.txt    Not a valid directory: ${process.env.PWD}/test/__fixtures__/foo/foo_1.txt\n\n`)
+        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/foo/foo_1.txt\n\n    Not a valid directory: ${process.env.PWD}/test/__fixtures__/foo/foo_1.txt\n\n`)
 
         result = await palmtree.inspect(INVALID_FOLDER_PATH, {silent: true})
         result = stripANSI(result)
 
-        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/xxx    Not a valid file/directory: ${process.env.PWD}/test/__fixtures__/xxx\n\n`)
+        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/xxx\n\n    Not a valid file/directory: ${process.env.PWD}/test/__fixtures__/xxx\n\n`)
 
         result = await palmtree.inspect(INVALID_FILE_PATH, {silent: true})
         result = stripANSI(result)
 
-        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/xxx/foo_1.txt    Not a valid file/directory: ${process.env.PWD}/test/__fixtures__/xxx/foo_1.txt\n\n`)
+        expect(result).toEqual(`\n${process.env.PWD}/test/__fixtures__/xxx/foo_1.txt\n\n    Not a valid file/directory: ${process.env.PWD}/test/__fixtures__/xxx/foo_1.txt\n\n`)
     })
 
     test('log', () => {

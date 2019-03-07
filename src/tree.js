@@ -357,6 +357,7 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
             if (item.children) {
                 try {
                     itemOutput = await inspectTree(item.path, options, level + 1)
+
                 } catch (error) {
                     // skip
                 }

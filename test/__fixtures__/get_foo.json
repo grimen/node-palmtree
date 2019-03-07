@@ -242,7 +242,7 @@
         "resolvedRelativePath": "."
     },
     {
-        "absolutePath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx",
+        "absolutePath": "$PWD/test/__fixtures__/foo/xxx",
         "children": null,
         "extension": null,
         "isDirectory": false,
@@ -256,17 +256,17 @@
         "level": 0,
         "meta": "",
         "name": "xxx",
-        "path": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx",
+        "path": "$PWD/test/__fixtures__/foo/xxx",
         "relativePath": ".",
-        "resolvedAbsolutePath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx",
+        "resolvedAbsolutePath": "$PWD/test/__fixtures__/foo/xxx",
         "resolvedExtension": null,
         "resolvedKey": "xxx",
         "resolvedName": "xxx",
-        "resolvedPath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx",
+        "resolvedPath": "$PWD/test/__fixtures__/foo/xxx",
         "resolvedRelativePath": "."
     },
     {
-        "absolutePath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx.txt",
+        "absolutePath": "$PWD/test/__fixtures__/foo/xxx.txt",
         "children": null,
         "extension": ".txt",
         "isDirectory": false,
@@ -280,13 +280,13 @@
         "level": 0,
         "meta": "",
         "name": "xxx.txt",
-        "path": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx.txt",
+        "path": "$PWD/test/__fixtures__/foo/xxx.txt",
         "relativePath": ".",
-        "resolvedAbsolutePath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx.txt",
+        "resolvedAbsolutePath": "$PWD/test/__fixtures__/foo/xxx.txt",
         "resolvedExtension": ".txt",
         "resolvedKey": "xxx",
         "resolvedName": "xxx.txt",
-        "resolvedPath": "/Users/grimen/Dev/Private/node-palmtree/test/__fixtures__/foo/xxx.txt",
+        "resolvedPath": "$PWD/test/__fixtures__/foo/xxx.txt",
         "resolvedRelativePath": "."
     }
 ]
