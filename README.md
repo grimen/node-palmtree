@@ -818,6 +818,10 @@ Run **colorful tests** using **jest**:
 $ make test
 ```
 
+## Related
+
+- [**`python-palmtree`**](https://github.com/grimen/python-palmtree) - *"A pretty filesystem tree inspection utility - for Python"*
+
 
 ## About
 

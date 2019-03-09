@@ -79,7 +79,7 @@ async function main () {
 
     let tree = await palmtree.get('./test/__fixtures__/foo')
 
-    console.log('[get/plain]:', util.inspect(tree, {depth: null, compact: false, indent: 4, colors: true}))
+    console.log('[get/plain]:', util.inspect(tree, {depth: null, compact: false, colors: true}))
 
     /* =======================================================
         EXAMPLE: get detailed object
@@ -89,7 +89,7 @@ async function main () {
 
     tree = await palmtree.get('./test/__fixtures__/foo', {meta})
 
-    console.log('[get/detailed]:', util.inspect(tree, {depth: null, compact: false, indent: 4, colors: true}))
+    console.log('[get/detailed]:', util.inspect(tree, {depth: null, compact: false, colors: true}))
 }
 
 main()

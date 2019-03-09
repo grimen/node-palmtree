@@ -311,13 +311,13 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
                         color.gray(BRANCH_ITEM_LINK_SUFFIX),
                         color.gray(item.resolvedRelativePath),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
 
                 } else {
                     itemName = [
                         color.white.bold(item.name),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
                 }
 
             } else if (item.isFile) {
@@ -327,13 +327,13 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
                         color.gray(BRANCH_ITEM_LINK_SUFFIX),
                         color.gray(item.resolvedRelativePath),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
 
                 } else {
                     itemName = [
                         color.white(item.name),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
                 }
 
             } else {
@@ -343,13 +343,13 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
                         color.gray(BRANCH_ITEM_LINK_SUFFIX),
                         color.gray(BRANCH_ITEM_LINK_BROKEN),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
 
                 } else {
                     itemName = [
                         color.white.red(item.name),
                         item.meta,
-                    ].join(' ')
+                    ].join(SPACE)
                 }
             }
 
@@ -361,7 +361,7 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
                     itemOutput = await inspectTree(item.path, options, level + 1)
 
                 } catch (error) {
-                    // skip
+                    // pass
                 }
 
                 if (typeof itemOutput === 'string') {
@@ -372,8 +372,6 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
 
         if (level === ROOT_LEVEL) {
             output += `\n\n`
-
-            return output
         }
 
         return output
@@ -383,7 +381,8 @@ const inspectTree = async (rootPath = CURRENT_PATH, options = {}, level = ROOT_L
             throw error
         }
 
-        output += `\n\n    ${color.red(error.message)}`
+        output += `\n\n`
+        output += `    ${color.red(error.message)}`
         output += '\n\n'
 
         return output
