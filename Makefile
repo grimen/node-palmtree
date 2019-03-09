@@ -24,3 +24,7 @@ validate:
 .PHONY: release
 release:
 	yarn publish --access public
+
+.PHONY: coverage
+coverage:
+	yarn run coverage

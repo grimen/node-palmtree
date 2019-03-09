@@ -32,16 +32,18 @@
     "main": "index.js",
     "scripts": {
         "test": "npx jest",
-        "test-ci": "npx jest --runInBand --forceExit --detectOpenHandles",
+        "test-ci": "npx jest --runInBand --forceExit --detectOpenHandles --coverage",
         "test-dev": "npx jest --watch",
         "validate": "npx eslint \"**/*.js\"",
-        "release": "./bin/release"
+        "release": "./bin/release",
+        "coverage": "npx codecov"
     },
     "dependencies": {
         "chalk": "^2.4.2"
     },
     "devDependencies": {
         "babel-eslint": "^10.0.1",
+        "codecov": "^3.2.0",
         "eslint": "^5.14.1",
         "jest": "^24.1.0",
         "md5": "^2.2.1",
