@@ -1,4 +1,4 @@
-# `node-palmtree` [![Build Status](https://travis-ci.com/grimen/node-palmtree.svg?token=sspjPRWbecBSpceU8Jyn&branch=master)](https://travis-ci.com/grimen/node-palmtree) [![Coverage Status](https://codecov.io/gh/grimen/node-palmtree/branch/master/graph/badge.svg)](https://codecov.io/gh/grimen/node-palmtree)
+# `node-palmtree` [![NPM version](https://badge.fury.io/js/%40grimen%2Fpalmtree.svg)](https://badge.fury.io/js/%40grimen%2Fpalmtree) [![Build Status](https://travis-ci.com/grimen/node-palmtree.svg?token=sspjPRWbecBSpceU8Jyn&branch=master)](https://travis-ci.com/grimen/node-palmtree) [![Coverage Status](https://codecov.io/gh/grimen/node-palmtree/branch/master/graph/badge.svg)](https://codecov.io/gh/grimen/node-palmtree)
 
 *A pretty filesystem tree inspection utility - for Node.js.*
 
